@@ -1,0 +1,9 @@
+<xmsconfig>
+<techtype>MSML</techtype>
+<baseurl>146.152.64.141</baseurl>
+<appid>msml</appid>
+<count>1</count>
+<channels>1</channels>
+<configFile>config.xml</configFile>
+<stim>Manual</stim>
+</xmsconfig>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
+ <object class="com.dialogic.xms.smoke.test.Audit">
+  <void property="auditTestName">
+   <string>PlayRecordTest</string>
+  </void>
+  <void property="checkpointCount">
+   <int>4</int>
+  </void>
+  <void property="configContents">
+   <object class="com.dialogic.xms.smoke.test.Config">
+    <void property="appID">
+     <string>app</string>
+    </void>
+    <void property="channels">
+     <int>1</int>
+    </void>
+    <void property="count">
+     <int>1</int>
+    </void>
+    <void property="ipAddress">
+     <string>http://146.152.64.141:81/default/</string>
+    </void>
+    <void property="maxTime">
+     <int>10</int>
+    </void>
+    <void property="recordFileName">
+     <string>Test</string>
+    </void>
+    <void property="stim">
+     <string>Manual</string>
+    </void>
+    <void property="type">
+     <string>REST</string>
+    </void>
+   </object>
+  </void>
+  <void property="configFileName">
+   <string>PlayRecordConfig.xml</string>
+  </void>
+  <void property="numPass">
+   <int>7</int>
+  </void>
+  <void property="startTime">
+   <string>[09:36:56.381] </string>
+  </void>
+  <void property="testCheckpoints">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>WaitCall</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[09:36:56.678] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=8f98c1c0-4c8f-494f-8685-cb2d013eae82 Type=incoming ResourceType=call event=&lt;xml-fragment type=&quot;incoming&quot; resource_id=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;call_id&quot; value=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot;/&gt;&#13;
+  &lt;event_data name=&quot;called_uri&quot; value=&quot;&amp;lt;sip:app@146.152.64.141&gt;&quot;/&gt;&#13;
+  &lt;event_data name=&quot;caller_uri&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;tag=C9Bkp2rni&quot;/&gt;&#13;
+  &lt;event_data name=&quot;content_count&quot; value=&quot;0&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers&quot; value=&quot;Request-URI:app@146.152.64.141&#13;
+Call-ID:5mopQpzSlj&#13;
+CSeq: 20 INVITE&#13;
+To: &amp;lt;sip:app@146.152.64.141&gt;&#13;
+From: &amp;lt;sip:toto@10.20.120.33&gt;;tag=C9Bkp2rni&#13;
+Contact: &amp;lt;sip:toto@10.20.120.33&gt;;+sip.instance=&amp;quot;&amp;lt;urn:uuid:347e82fe-699e-4d16-bca6-d8e2aa4c91aa&gt;&amp;quot;&#13;
+Content-Type:application/sdp&#13;
+Content-Length:345&#13;
+User-Agent: Linphone/3.8.5 (belle-sip/1.4.1)&#13;
+Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE&#13;
+Supported: outbound&#13;
+&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Allow&quot; value=&quot;INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.CSeq&quot; value=&quot;20 INVITE&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Call-ID&quot; value=&quot;5mopQpzSlj&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Contact&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;+sip.instance=&amp;quot;&amp;lt;urn:uuid:347e82fe-699e-4d16-bca6-d8e2aa4c91aa&gt;&amp;quot;&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Content-Length&quot; value=&quot;345&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Content-Type&quot; value=&quot;application/sdp&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.From&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;tag=C9Bkp2rni&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Request-URI&quot; value=&quot;app@146.152.64.141&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.Supported&quot; value=&quot;outbound&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.To&quot; value=&quot;&amp;lt;sip:app@146.152.64.141&gt;&quot;/&gt;&#13;
+  &lt;event_data name=&quot;headers.User-Agent&quot; value=&quot;Linphone/3.8.5 (belle-sip/1.4.1)&quot;/&gt;&#13;
+  &lt;event_data name=&quot;name&quot; value=&quot;app&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;OFFER&quot;/&gt;&#13;
+  &lt;event_data name=&quot;uri&quot; value=&quot;sip:app@146.152.64.141&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Add to waitCall list</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>Record</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[09:37:02.800] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=8f98c1c0-4c8f-494f-8685-cb2d013eae82 Type=end_playrecord ResourceType=call event=&lt;xml-fragment type=&quot;end_playrecord&quot; resource_id=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;audio_file_size&quot; value=&quot;318764&quot;/&gt;&#13;
+  &lt;event_data name=&quot;duration&quot; value=&quot;10020&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;380d1507-0a6f-40ce-9c38-4aa6fa20907a&quot;/&gt;&#13;
+  &lt;event_data name=&quot;reason&quot; value=&quot;max-time&quot;/&gt;&#13;
+  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;380d1507-0a6f-40ce-9c38-4aa6fa20907a&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY_RECORD&quot;/&gt;&#13;
+  &lt;event_data name=&quot;video_file_size&quot; value=&quot;0&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Start Recording</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>Play</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[09:37:13.071] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=8f98c1c0-4c8f-494f-8685-cb2d013eae82 Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;duration&quot; value=&quot;9930&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;2521cd4b-16d3-4a16-860b-604a1a919fc6&quot;/&gt;&#13;
+  &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
+  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;2521cd4b-16d3-4a16-860b-604a1a919fc6&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Playing</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>FinalDropCall</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[09:37:23.202] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=8f98c1c0-4c8f-494f-8685-cb2d013eae82 Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;duration&quot; value=&quot;9930&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;8f98c1c0-4c8f-494f-8685-cb2d013eae82&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;2521cd4b-16d3-4a16-860b-604a1a919fc6&quot;/&gt;&#13;
+  &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
+  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;2521cd4b-16d3-4a16-860b-604a1a919fc6&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Drop call</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="testStatus">
+   <string>SUCCESS</string>
+  </void>
+ </object>
+</java>

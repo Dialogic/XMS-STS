@@ -1,0 +1,9 @@
+<xmsconfig>
+<techtype>REST</techtype>
+<baseurl>http://146.152.64.141:81/default/</baseurl>
+<appid>app</appid>
+<count>1</count>
+<channels>1</channels>
+<configFile>ConferenceConfig.xml</configFile>
+<stim>Manual</stim>
+</xmsconfig>

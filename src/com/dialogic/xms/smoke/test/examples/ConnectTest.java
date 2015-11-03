@@ -12,6 +12,7 @@ import com.dialogic.xms.smoke.test.Checkpoint;
 import com.dialogic.xms.smoke.test.Utility;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -67,7 +68,8 @@ public class ConnectTest extends Observable {
                 if (isVideo) {
                     myCall.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                 }
-                Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCall list, Call");
+                Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + inboundPlayAudit.getConfigContents().getPort());
                 setValue(waitCall.getShortDesc());
                 XMSReturnCode result = myCall.Waitcall();
                 waitCall = Utility.setResult(inboundPlayAudit, waitCall, result, myCall);
@@ -105,7 +107,7 @@ public class ConnectTest extends Observable {
             } else {
                 System.out.println("NO CONFIG FILE SPECIFIED -> " + configName);
             }
-        } catch (FileNotFoundException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(ConnectTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         return inboundPlayAudit;

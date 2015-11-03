@@ -17,6 +17,7 @@ public class Config implements Serializable {
     private String ipAddress;
     private String appID;
     private String type;
+    private int port;
     private int count;
     private int channels;
     private String recordFileName;
@@ -207,6 +208,20 @@ public class Config implements Serializable {
      */
     public void setCallType(String callType) {
         this.callType = callType;
+    }
+
+    /**
+     * @return the port
+     */
+    public int getPort() {
+        return port;
+    }
+
+    /**
+     * @param port the port to set
+     */
+    public void setPort(int port) {
+        this.port = port;
     }
 
 }

@@ -65,10 +65,10 @@ public class JoinTestForm extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
-        File f = new File("JoinTestConfig.xml");
+        File f = new File("config/JoinTestConfig.xml");
         if (f.exists()) {
             try {
-                readFromXMLFile(new FileInputStream("JoinTestConfig.xml"));
+                readFromXMLFile(new FileInputStream("config/JoinTestConfig.xml"));
             } catch (FileNotFoundException ex) {
                 logger.log(Level.SEVERE, null, ex);
             }
@@ -102,6 +102,8 @@ public class JoinTestForm extends javax.swing.JFrame {
         stimComboBox = new javax.swing.JComboBox();
         appIdLabel4 = new javax.swing.JLabel();
         fileNameTextField = new javax.swing.JTextField();
+        portLabel = new javax.swing.JLabel();
+        portTextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         fileTextField = new javax.swing.JTextField();
         fileButton = new javax.swing.JButton();
@@ -188,7 +190,14 @@ public class JoinTestForm extends javax.swing.JFrame {
         appIdLabel4.setText("Stim Option");
 
         fileNameTextField.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        fileNameTextField.setText("JoinTestConfig.xml");
+        fileNameTextField.setText("config/JoinTestConfig.xml");
+
+        portLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        portLabel.setForeground(new java.awt.Color(0, 0, 204));
+        portLabel.setText("Port");
+
+        portTextField.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        portTextField.setText("5070");
 
         javax.swing.GroupLayout fieldsPanelLayout = new javax.swing.GroupLayout(fieldsPanel);
         fieldsPanel.setLayout(fieldsPanelLayout);
@@ -196,10 +205,10 @@ public class JoinTestForm extends javax.swing.JFrame {
             fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fieldsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fieldsPanelLayout.createSequentialGroup()
                         .addComponent(appIdLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(channelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldsPanelLayout.createSequentialGroup()
                         .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,10 +218,6 @@ public class JoinTestForm extends javax.swing.JFrame {
                         .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ipAddressTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(typeComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldsPanelLayout.createSequentialGroup()
-                        .addComponent(appIdLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(countTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fieldsPanelLayout.createSequentialGroup()
                         .addComponent(appIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -224,7 +229,15 @@ public class JoinTestForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldsPanelLayout.createSequentialGroup()
                         .addComponent(appIdLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(stimComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(stimComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldsPanelLayout.createSequentialGroup()
+                        .addComponent(appIdLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(countTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fieldsPanelLayout.createSequentialGroup()
+                        .addComponent(portLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(portTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -234,35 +247,40 @@ public class JoinTestForm extends javax.swing.JFrame {
         fieldsPanelLayout.setVerticalGroup(
             fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fieldsPanelLayout.createSequentialGroup()
-                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(techTypeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(xmsAddressLAbel)
+                    .addComponent(ipAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(appIdLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fieldsPanelLayout.createSequentialGroup()
                         .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(typeComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(techTypeLabel))
+                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(portLabel))
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fieldsPanelLayout.createSequentialGroup()
+                        .addComponent(portTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(xmsAddressLAbel)
-                            .addComponent(ipAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(appIdLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(appIdLabel1)
                             .addComponent(countTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(channelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(appIdLabel2))
-                        .addGap(5, 5, 5)
-                        .addComponent(saveButton)
-                        .addGap(10, 10, 10))
-                    .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(appIdLabel3)
-                        .addComponent(fileNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                            .addComponent(appIdLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveButton)
+                    .addComponent(channelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(appIdLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fileNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(appIdLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fieldsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stimComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(appIdLabel4))
@@ -504,9 +522,11 @@ public class JoinTestForm extends javax.swing.JFrame {
         if (typeComboBox.getSelectedItem() == "REST") {
             userTextField.setText("app");
             ipAddressTextField.setText("http://enter_ip_adr:81/default/");
+            portTextField.setEnabled(false);
         } else if (typeComboBox.getSelectedItem() == "MSML") {
             userTextField.setText("msml");
             ipAddressTextField.setText("");
+            portTextField.setEnabled(true);
         }
     }//GEN-LAST:event_typeComboBoxActionPerformed
 
@@ -527,6 +547,21 @@ public class JoinTestForm extends javax.swing.JFrame {
                 if (element.getLocalName().equals("techtype")) {
                     typeComboBox.setSelectedItem(element.getValue());
                 }
+                if (element.getLocalName().equals("port")) {
+                    portTextField.setText(element.getValue());
+                }
+                if (element.getLocalName().equals("count")) {
+                    countTextField.setText(element.getValue());
+                }
+                if (element.getLocalName().equals("channels")) {
+                    channelTextField.setText(element.getValue());
+                }
+                if (element.getLocalName().equals("configFile")) {
+                    fileNameTextField.setText(element.getValue());
+                }
+//                if(element.getLocalName().equals("stim")) {
+//                    stimComboBox.setSelectedItem(element.getValue());
+//                }
             }
         } catch (Exception ex) {
             Logger.getLogger(JoinTestForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -555,6 +590,10 @@ public class JoinTestForm extends javax.swing.JFrame {
             org.w3c.dom.Element appid = doc.createElement("appid");
             appid.appendChild(doc.createTextNode(userTextField.getText()));
             rootElement.appendChild(appid);
+
+            org.w3c.dom.Element port = doc.createElement("port");
+            port.appendChild(doc.createTextNode(portTextField.getText()));
+            rootElement.appendChild(port);
 
             org.w3c.dom.Element count = doc.createElement("count");
             count.appendChild(doc.createTextNode(countTextField.getText()));
@@ -596,6 +635,8 @@ public class JoinTestForm extends javax.swing.JFrame {
     private javax.swing.JTextField fileTextField;
     private javax.swing.JTextField ipAddressTextField;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel portLabel;
+    private javax.swing.JTextField portTextField;
     private javax.swing.JButton saveButton;
     private javax.swing.JComboBox stimComboBox;
     private javax.swing.JLabel techTypeLabel;

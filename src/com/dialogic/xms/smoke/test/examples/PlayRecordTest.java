@@ -15,6 +15,7 @@ import com.dialogic.xms.smoke.test.Audit;
 import com.dialogic.xms.smoke.test.Checkpoint;
 import com.dialogic.xms.smoke.test.Utility;
 import java.io.FileInputStream;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -49,7 +50,8 @@ public class PlayRecordTest extends Observable {
                     XMSConnector myConnector = myFactory.CreateConnector(this.getConfigFileName());
                     XMSCall call = myFactory.CreateCall(myConnector);
 
-                    Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Add to waitCall list");
+                    Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + playRecordAudit.getConfigContents().getPort());
                     setValue(waitCall.getShortDesc());
                     XMSReturnCode result = call.Waitcall();
                     waitCall = Utility.setResult(playRecordAudit, waitCall, result, call);

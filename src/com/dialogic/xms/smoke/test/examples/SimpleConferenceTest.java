@@ -17,6 +17,7 @@ import com.dialogic.xms.smoke.test.Checkpoint;
 import com.dialogic.xms.smoke.test.Utility;
 import com.dialogic.xms.smoke.test.stim.SimpleConferenceTestStim;
 import java.io.FileInputStream;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -68,7 +69,8 @@ public class SimpleConferenceTest extends Observable {
                         }
                         this.checkpoints.add(conf);
 
-                        Checkpoint waitCall1 = Utility.getCheckpoint("WaitCall", "Add to waitCall list");
+                        Checkpoint waitCall1 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + conferenceTestAudit.getConfigContents().getPort());
                         setValue(waitCall1.getShortDesc());
                         call1.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                         XMSReturnCode result1 = call1.Waitcall();
@@ -89,7 +91,8 @@ public class SimpleConferenceTest extends Observable {
                         add1 = Utility.setResult(conferenceTestAudit, add1, addResult1, call1);
                         this.checkpoints.add(add1);
 
-                        Checkpoint waitCall2 = Utility.getCheckpoint("WaitCall", "Add to waitCall list");
+                        Checkpoint waitCall2 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + conferenceTestAudit.getConfigContents().getPort());
                         setValue(waitCall2.getShortDesc());
                         call2.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                         XMSReturnCode result2 = call2.Waitcall();
@@ -110,7 +113,8 @@ public class SimpleConferenceTest extends Observable {
                         add2 = Utility.setResult(conferenceTestAudit, add2, addResult2, call2);
                         this.checkpoints.add(add2);
 
-                        Checkpoint waitCall3 = Utility.getCheckpoint("WaitCall", "Add to waitCall list");
+                        Checkpoint waitCall3 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + conferenceTestAudit.getConfigContents().getPort());
                         setValue(waitCall3.getShortDesc());
                         call3.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                         XMSReturnCode result3 = call3.Waitcall();

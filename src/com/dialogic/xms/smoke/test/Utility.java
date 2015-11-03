@@ -95,6 +95,9 @@ public class Utility {
                 if (element.getLocalName().equals("outboundAddress")) {
                     config.setOutboundAddress(element.getValue());
                 }
+                if (element.getLocalName().equals("port")) {
+                    config.setPort(Integer.parseInt(element.getValue()));
+                }
             }
         } catch (Exception ex) {
             Logger.getLogger(EchoCallbackDemoForm.class.getName()).log(Level.SEVERE, null, ex);

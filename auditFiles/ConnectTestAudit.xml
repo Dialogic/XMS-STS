@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
+ <object class="com.dialogic.xms.smoke.test.Audit">
+  <void property="auditTestName">
+   <string>OutboundPlayTest</string>
+  </void>
+  <void property="checkpointCount">
+   <int>3</int>
+  </void>
+  <void property="configContents">
+   <object class="com.dialogic.xms.smoke.test.Config">
+    <void property="appID">
+     <string>app</string>
+    </void>
+    <void property="callType">
+     <string>Outbound</string>
+    </void>
+    <void property="channels">
+     <int>1</int>
+    </void>
+    <void property="count">
+     <int>1</int>
+    </void>
+    <void property="ipAddress">
+     <string>http://146.152.64.141:81/default/</string>
+    </void>
+    <void property="outboundAddress">
+     <string>sip:toto@10.20.120.20:5060</string>
+    </void>
+    <void property="playFileName">
+     <string>smoketest/success</string>
+    </void>
+    <void property="port">
+     <int>5070</int>
+    </void>
+    <void property="stim">
+     <string>Manual</string>
+    </void>
+    <void property="type">
+     <string>REST</string>
+    </void>
+   </object>
+  </void>
+  <void property="configFileName">
+   <string>config/ConnectTestConfig.xml</string>
+  </void>
+  <void property="numPass">
+   <int>2</int>
+  </void>
+  <void property="startTime">
+   <string>[15:40:22.824] </string>
+  </void>
+  <void property="testCheckpoints">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>MakeCall</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[15:40:23.433] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=01fc959e-938a-4051-a17a-c1615f54c83a Type=connected ResourceType=call event=&lt;xml-fragment type=&quot;connected&quot; resource_id=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;call_id&quot; value=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot;/&gt;&#13;
+  &lt;event_data name=&quot;called_uri&quot; value=&quot;&amp;lt;sip:toto@10.20.120.20:5060&gt;;tag=oSzooUs&quot;/&gt;&#13;
+  &lt;event_data name=&quot;caller_uri&quot; value=&quot;&amp;lt;sip:146.152.64.141&gt;;tag=f0bcc908-8d409892-13c4-50022-5653-7f9770d7-5653&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media&quot; value=&quot;audio&quot;/&gt;&#13;
+  &lt;event_data name=&quot;reason&quot; value=&quot;unknown&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;CONNECTED&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Making an outbound call</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>Play</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[15:40:24.530] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=01fc959e-938a-4051-a17a-c1615f54c83a Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;duration&quot; value=&quot;4470&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
+  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Playing</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>DropCall</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[15:40:39.219] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>XMSRestEvt- ID=01fc959e-938a-4051-a17a-c1615f54c83a Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;duration&quot; value=&quot;4470&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
+  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
+&lt;/xml-fragment&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Drop call</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="testStatus">
+   <string>SUCCESS</string>
+  </void>
+ </object>
+</java>

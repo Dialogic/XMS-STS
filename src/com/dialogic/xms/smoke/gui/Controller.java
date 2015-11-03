@@ -51,7 +51,11 @@ public class Controller extends javax.swing.JFrame implements Observer {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);        
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        TableColumnModel columnModel = outputTable.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(20);
+        columnModel.getColumn(1).setPreferredWidth(150);
 
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override

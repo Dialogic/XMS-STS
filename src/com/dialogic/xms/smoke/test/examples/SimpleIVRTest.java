@@ -15,6 +15,7 @@ import com.dialogic.xms.smoke.test.Checkpoint;
 import com.dialogic.xms.smoke.test.Utility;
 import com.dialogic.xms.smoke.test.stim.SimpleIVRTestStim;
 import java.io.FileInputStream;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -49,23 +50,23 @@ public class SimpleIVRTest extends Observable {
                     XMSConnector myConnector = myFactory.CreateConnector(this.getConfigFileName());
                     XMSCall call = myFactory.CreateCall(myConnector);
 
-                    Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Add to waitCall list");
+                    Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + ivrAudit.getConfigContents().getPort());
                     setValue(waitCall.getShortDesc());
                     XMSReturnCode result = call.Waitcall();
                     waitCall = Utility.setResult(ivrAudit, waitCall, result, call);
                     this.checkpoints.add(waitCall);
 
+                    //while (true) {
+                    call.PlayCollectOptions.SetMaxDigits(1);
+                    call.PlayCollectOptions.m_toneDetection = true;
+                    call.PlayCollectOptions.SetTimeout(20);
+                    Checkpoint collect = Utility.getCheckpoint("Collect", "Waiting for DTMF digits");
+                    setValue(collect.getShortDesc());
+                    XMSReturnCode collResult = call.PlayCollect("smoketest/mainIVR");
+                    collect = Utility.setResult(ivrAudit, collect, collResult, call);
+                    this.checkpoints.add(collect);
                     while (true) {
-
-                        call.PlayCollectOptions.SetMaxDigits(1);
-                        call.PlayCollectOptions.m_toneDetection = true;
-                        //call.PlayCollectOptions.SetTimeout(20);
-                        Checkpoint collect = Utility.getCheckpoint("Collect", "Waiting for DTMF digits");
-                        setValue(collect.getShortDesc());
-                        XMSReturnCode collResult = call.PlayCollect("smoketest/mainIVR");
-                        collect = Utility.setResult(ivrAudit, collect, collResult, call);
-                        this.checkpoints.add(collect);
-
                         System.out.println("************************");
                         System.out.println(call.getLastEvent());
                         System.out.println(call.getLastEvent().getReason());
@@ -97,7 +98,7 @@ public class SimpleIVRTest extends Observable {
                                     setValue("Digit " + call.getLastEvent().getData() + " was detected");
                                     continue;
                                 }
-                            } 
+                            }
                             if (call.getLastEvent().getReason() != null && call.getLastEvent().getReason().contains("term-digit")) {
                                 System.out.println("Term Digit of # detected.... hanging up");
                                 setValue("Term Digit of # detected, hanging up");

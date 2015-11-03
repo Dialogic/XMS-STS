@@ -16,6 +16,7 @@ import com.dialogic.xms.smoke.test.Audit;
 import com.dialogic.xms.smoke.test.Checkpoint;
 import com.dialogic.xms.smoke.test.Utility;
 import java.io.FileInputStream;
+import java.net.Inet4Address;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -52,7 +53,8 @@ public class JoinTest extends Observable {
                     XMSCall call2 = myFactory.CreateCall(myConnector);
 
                     call1.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
-                    Checkpoint waitCall1 = Utility.getCheckpoint("WaitCall1", "Add to waitCall list");
+                    Checkpoint waitCall1 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + joinTestAudit.getConfigContents().getPort());
                     setValue(waitCall1.getShortDesc());
                     XMSReturnCode result1 = call1.Waitcall();
                     waitCall1 = Utility.setResult(joinTestAudit, waitCall1, result1, call1);

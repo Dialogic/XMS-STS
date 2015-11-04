@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,8 +52,22 @@ public class SimpleIVRTest extends Observable {
                     XMSConnector myConnector = myFactory.CreateConnector(this.getConfigFileName());
                     XMSCall call = myFactory.CreateCall(myConnector);
 
-                    Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
-                        + Inet4Address.getLocalHost().getHostAddress() + ":" + ivrAudit.getConfigContents().getPort());
+                    Checkpoint waitCall = null;
+                    if (ivrAudit.getConfigContents().getType().equalsIgnoreCase("MSML")) {
+                        waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                                + Inet4Address.getLocalHost().getHostAddress() + ":" + ivrAudit.getConfigContents().getPort());
+                    } else if (ivrAudit.getConfigContents().getType().equalsIgnoreCase("REST")) {
+                        Pattern pattern = Pattern.compile("\\/\\/(.*?):");
+                        Matcher m = pattern.matcher(ivrAudit.getConfigContents().getIpAddress());
+                        String event = "";
+                        if (m.find()) {
+                            event = m.group(1);
+                        }
+                        waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                                + ivrAudit.getConfigContents().getAppID() + "@" + event);
+                    } else {
+                        waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist");
+                    }
                     setValue(waitCall.getShortDesc());
                     XMSReturnCode result = call.Waitcall();
                     waitCall = Utility.setResult(ivrAudit, waitCall, result, call);
@@ -67,9 +83,6 @@ public class SimpleIVRTest extends Observable {
                     collect = Utility.setResult(ivrAudit, collect, collResult, call);
                     this.checkpoints.add(collect);
                     while (true) {
-                        System.out.println("************************");
-                        System.out.println(call.getLastEvent());
-                        System.out.println(call.getLastEvent().getReason());
                         if (call.getLastEvent() != null) {
                             if (call.getLastEvent().getReason() != null && call.getLastEvent().getReason().contains("max-digits")) {
                                 if (call.getLastEvent().getData().contentEquals("1")) {

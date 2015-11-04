@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -53,8 +55,22 @@ public class JoinTest extends Observable {
                     XMSCall call2 = myFactory.CreateCall(myConnector);
 
                     call1.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
-                    Checkpoint waitCall1 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
-                        + Inet4Address.getLocalHost().getHostAddress() + ":" + joinTestAudit.getConfigContents().getPort());
+                    Checkpoint waitCall1 = null;
+                    if (joinTestAudit.getConfigContents().getType().equalsIgnoreCase("MSML")) {
+                        waitCall1 = Utility.getCheckpoint("WaitCall1", "Adding to waitCalllist, Call "
+                                + Inet4Address.getLocalHost().getHostAddress() + ":" + joinTestAudit.getConfigContents().getPort());
+                    } else if (joinTestAudit.getConfigContents().getType().equalsIgnoreCase("REST")) {
+                        Pattern pattern = Pattern.compile("\\/\\/(.*?):");
+                        Matcher m = pattern.matcher(joinTestAudit.getConfigContents().getIpAddress());
+                        String event = "";
+                        if (m.find()) {
+                            event = m.group(1);
+                        }
+                        waitCall1 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                                + joinTestAudit.getConfigContents().getAppID() + "@" + event);
+                    } else {
+                        waitCall1 = Utility.getCheckpoint("WaitCall1", "Adding to waitCalllist");
+                    }
                     setValue(waitCall1.getShortDesc());
                     XMSReturnCode result1 = call1.Waitcall();
                     waitCall1 = Utility.setResult(joinTestAudit, waitCall1, result1, call1);
@@ -69,7 +85,22 @@ public class JoinTest extends Observable {
                     this.checkpoints.add(playPrompt1);
 
                     call2.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
-                    Checkpoint waitCall2 = Utility.getCheckpoint("WaitCall2", "Add to waitCall list");
+                    Checkpoint waitCall2 = null;
+                    if (joinTestAudit.getConfigContents().getType().equalsIgnoreCase("MSML")) {
+                        waitCall2 = Utility.getCheckpoint("WaitCall2", "Adding to waitCalllist, Call "
+                                + Inet4Address.getLocalHost().getHostAddress() + ":" + joinTestAudit.getConfigContents().getPort());
+                    } else if (joinTestAudit.getConfigContents().getType().equalsIgnoreCase("REST")) {
+                        Pattern pattern = Pattern.compile("\\/\\/(.*?):");
+                        Matcher m = pattern.matcher(joinTestAudit.getConfigContents().getIpAddress());
+                        String event = "";
+                        if (m.find()) {
+                            event = m.group(1);
+                        }
+                        waitCall2 = Utility.getCheckpoint("WaitCall2", "Adding to waitCalllist, Call "
+                                + joinTestAudit.getConfigContents().getAppID() + "@" + event);
+                    } else {
+                        waitCall2 = Utility.getCheckpoint("WaitCall2", "Adding to waitCalllist");
+                    }
                     setValue(waitCall2.getShortDesc());
                     XMSReturnCode result2 = call2.Waitcall();
                     waitCall2 = Utility.setResult(joinTestAudit, waitCall2, result2, call2);

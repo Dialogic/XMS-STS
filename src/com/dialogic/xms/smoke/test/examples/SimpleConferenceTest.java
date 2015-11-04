@@ -18,11 +18,14 @@ import com.dialogic.xms.smoke.test.Utility;
 import com.dialogic.xms.smoke.test.stim.SimpleConferenceTestStim;
 import java.io.FileInputStream;
 import java.net.Inet4Address;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -69,9 +72,7 @@ public class SimpleConferenceTest extends Observable {
                         }
                         this.checkpoints.add(conf);
 
-                        Checkpoint waitCall1 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
-                        + Inet4Address.getLocalHost().getHostAddress() + ":" + conferenceTestAudit.getConfigContents().getPort());
-                        setValue(waitCall1.getShortDesc());
+                        Checkpoint waitCall1 = createWaitCallCheckpoint(conferenceTestAudit);
                         call1.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                         XMSReturnCode result1 = call1.Waitcall();
                         waitCall1 = Utility.setResult(conferenceTestAudit, waitCall1, result1, call1);
@@ -91,9 +92,7 @@ public class SimpleConferenceTest extends Observable {
                         add1 = Utility.setResult(conferenceTestAudit, add1, addResult1, call1);
                         this.checkpoints.add(add1);
 
-                        Checkpoint waitCall2 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
-                        + Inet4Address.getLocalHost().getHostAddress() + ":" + conferenceTestAudit.getConfigContents().getPort());
-                        setValue(waitCall2.getShortDesc());
+                        Checkpoint waitCall2 = createWaitCallCheckpoint(conferenceTestAudit);
                         call2.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                         XMSReturnCode result2 = call2.Waitcall();
                         waitCall2 = Utility.setResult(conferenceTestAudit, waitCall2, result2, call2);
@@ -113,9 +112,7 @@ public class SimpleConferenceTest extends Observable {
                         add2 = Utility.setResult(conferenceTestAudit, add2, addResult2, call2);
                         this.checkpoints.add(add2);
 
-                        Checkpoint waitCall3 = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
-                        + Inet4Address.getLocalHost().getHostAddress() + ":" + conferenceTestAudit.getConfigContents().getPort());
-                        setValue(waitCall3.getShortDesc());
+                        Checkpoint waitCall3 = createWaitCallCheckpoint(conferenceTestAudit);
                         call3.WaitcallOptions.SetMediaType(XMSMediaType.VIDEO);
                         XMSReturnCode result3 = call3.Waitcall();
                         waitCall3 = Utility.setResult(conferenceTestAudit, waitCall3, result3, call3);
@@ -204,5 +201,30 @@ public class SimpleConferenceTest extends Observable {
     public void setValue(String value) {
         setChanged();
         notifyObservers(value);
+    }
+
+    private Checkpoint createWaitCallCheckpoint(Audit audit) {
+        Checkpoint ck = null;
+        try {
+            if (audit.getConfigContents().getType().equalsIgnoreCase("MSML")) {
+                ck = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + Inet4Address.getLocalHost().getHostAddress() + ":" + audit.getConfigContents().getPort());
+            } else if (audit.getConfigContents().getType().equalsIgnoreCase("REST")) {
+                Pattern pattern = Pattern.compile("\\/\\/(.*?):");
+                Matcher m = pattern.matcher(audit.getConfigContents().getIpAddress());
+                String event = "";
+                if (m.find()) {
+                    event = m.group(1);
+                }
+                ck = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                        + audit.getConfigContents().getAppID() + "@" + event);
+            } else {
+                ck = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist");
+            }
+            setValue(ck.getShortDesc());
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(SimpleConferenceTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ck;
     }
 }

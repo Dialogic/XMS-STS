@@ -63,8 +63,16 @@ public class SimpleConferenceTestForm extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {                
+                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                testobj.isCancelled();                
+            }
+        });
+        stimComboBox.setEnabled(Boolean.FALSE);
         File f = new File("config/ConferenceConfig.xml");
         if (f.exists()) {
             try {

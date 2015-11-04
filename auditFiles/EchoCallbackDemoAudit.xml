@@ -10,7 +10,7 @@
   <void property="configContents">
    <object class="com.dialogic.xms.smoke.test.Config">
     <void property="appID">
-     <string>app</string>
+     <string>msml</string>
     </void>
     <void property="channels">
      <int>1</int>
@@ -19,10 +19,13 @@
      <int>1</int>
     </void>
     <void property="ipAddress">
-     <string>http://146.152.64.141:81/default/</string>
+     <string>146.152.64.141</string>
     </void>
     <void property="maxTime">
      <int>10</int>
+    </void>
+    <void property="port">
+     <int>5070</int>
     </void>
     <void property="recordFileName">
      <string>Test</string>
@@ -31,7 +34,7 @@
      <string>Manual</string>
     </void>
     <void property="type">
-     <string>REST</string>
+     <string>MSML</string>
     </void>
    </object>
   </void>
@@ -39,10 +42,10 @@
    <string>EchoCallbackConfig.xml</string>
   </void>
   <void property="numPass">
-   <int>11</int>
+   <int>5</int>
   </void>
   <void property="startTime">
-   <string>[09:33:47.311] </string>
+   <string>[11:27:14.655] </string>
   </void>
   <void property="testCheckpoints">
    <object class="java.util.ArrayList">
@@ -52,47 +55,25 @@
        <string>WaitCall</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[09:33:47.623] </string>
+       <string>[11:27:15.218] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=b43d7190-51d3-469b-92a2-2850df61ba75 Type=incoming ResourceType=call event=&lt;xml-fragment type=&quot;incoming&quot; resource_id=&quot;b43d7190-51d3-469b-92a2-2850df61ba75&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;call_id&quot; value=&quot;b43d7190-51d3-469b-92a2-2850df61ba75&quot;/&gt;&#13;
-  &lt;event_data name=&quot;called_uri&quot; value=&quot;&amp;lt;sip:app@146.152.64.141&gt;&quot;/&gt;&#13;
-  &lt;event_data name=&quot;caller_uri&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;tag=E~mJRlXAd&quot;/&gt;&#13;
-  &lt;event_data name=&quot;content_count&quot; value=&quot;0&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers&quot; value=&quot;Request-URI:app@146.152.64.141&#13;
-Call-ID:4HP9dRXz7U&#13;
-CSeq: 20 INVITE&#13;
-To: &amp;lt;sip:app@146.152.64.141&gt;&#13;
-From: &amp;lt;sip:toto@10.20.120.33&gt;;tag=E~mJRlXAd&#13;
-Contact: &amp;lt;sip:toto@10.20.120.33&gt;;+sip.instance=&amp;quot;&amp;lt;urn:uuid:347e82fe-699e-4d16-bca6-d8e2aa4c91aa&gt;&amp;quot;&#13;
-Content-Type:application/sdp&#13;
-Content-Length:343&#13;
-User-Agent: Linphone/3.8.5 (belle-sip/1.4.1)&#13;
-Allow: INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE&#13;
-Supported: outbound&#13;
-&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Allow&quot; value=&quot;INVITE, ACK, CANCEL, OPTIONS, BYE, REFER, NOTIFY, MESSAGE, SUBSCRIBE, INFO, UPDATE&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.CSeq&quot; value=&quot;20 INVITE&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Call-ID&quot; value=&quot;4HP9dRXz7U&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Contact&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;+sip.instance=&amp;quot;&amp;lt;urn:uuid:347e82fe-699e-4d16-bca6-d8e2aa4c91aa&gt;&amp;quot;&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Content-Length&quot; value=&quot;343&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Content-Type&quot; value=&quot;application/sdp&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.From&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;tag=E~mJRlXAd&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Request-URI&quot; value=&quot;app@146.152.64.141&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.Supported&quot; value=&quot;outbound&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.To&quot; value=&quot;&amp;lt;sip:app@146.152.64.141&gt;&quot;/&gt;&#13;
-  &lt;event_data name=&quot;headers.User-Agent&quot; value=&quot;Linphone/3.8.5 (belle-sip/1.4.1)&quot;/&gt;&#13;
-  &lt;event_data name=&quot;name&quot; value=&quot;app&quot;/&gt;&#13;
-  &lt;event_data name=&quot;type&quot; value=&quot;OFFER&quot;/&gt;&#13;
-  &lt;event_data name=&quot;uri&quot; value=&quot;sip:app@146.152.64.141&quot;/&gt;&#13;
-&lt;/xml-fragment&gt;</string>
+       <string>ACK sip:test@10.20.120.20:5070 SIP/2.0&#13;
+Via: SIP/2.0/UDP 10.20.120.20:5060;rport=5060;received=10.20.120.20;branch=z9hG4bK.zQlqRJcW7&#13;
+From: &lt;sip:toto@10.20.120.20&gt;;tag=Q0D50v2HT&#13;
+To: &lt;sip:test@10.20.120.20&gt;;tag=1d7897e&#13;
+CSeq: 20 ACK&#13;
+Call-ID: QfxfwgXFXg&#13;
+Max-Forwards: 70&#13;
+Content-Length: 0&#13;
+&#13;
+</string>
       </void>
       <void property="shortDesc">
-       <string>Add to waitCall list</string>
+       <string>Adding to waitCalllist, Call 10.20.120.20:5070</string>
       </void>
      </object>
     </void>
@@ -102,23 +83,20 @@ Supported: outbound&#13;
        <string>Record</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[09:33:54.625] </string>
+       <string>[11:27:32.195] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=b43d7190-51d3-469b-92a2-2850df61ba75 Type=end_playrecord ResourceType=call event=&lt;xml-fragment type=&quot;end_playrecord&quot; resource_id=&quot;b43d7190-51d3-469b-92a2-2850df61ba75&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;audio_file_size&quot; value=&quot;318764&quot;/&gt;&#13;
-  &lt;event_data name=&quot;duration&quot; value=&quot;10020&quot;/&gt;&#13;
-  &lt;event_data name=&quot;id&quot; value=&quot;b43d7190-51d3-469b-92a2-2850df61ba75&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media_id&quot; value=&quot;4297affd-6c8e-4827-a325-e499c9c0c0a0&quot;/&gt;&#13;
-  &lt;event_data name=&quot;reason&quot; value=&quot;max-time&quot;/&gt;&#13;
-  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
-  &lt;event_data name=&quot;transaction_id&quot; value=&quot;4297affd-6c8e-4827-a325-e499c9c0c0a0&quot;/&gt;&#13;
-  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY_RECORD&quot;/&gt;&#13;
-  &lt;event_data name=&quot;video_file_size&quot; value=&quot;0&quot;/&gt;&#13;
-&lt;/xml-fragment&gt;</string>
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;msml version=&quot;1.1&quot;&gt;&#13;
+	&lt;event name=&quot;moml.exit&quot;&#13;
+		id=&quot;conn:f0bcf270-8d409892-13c4-50022-16c90-661e607a-16c90/dialog:Record&quot;&gt;&#13;
+		&lt;name&gt;record.end&lt;/name&gt;&lt;value&gt;record.complete.maxlength&lt;/value&gt;&#13;
+		&lt;name&gt;record.len&lt;/name&gt;&lt;value&gt;10020&lt;/value&gt;&#13;
+&lt;/event&gt;&#13;
+&lt;/msml&gt;</string>
       </void>
       <void property="shortDesc">
        <string>Start Recording</string>
@@ -131,23 +109,22 @@ Supported: outbound&#13;
        <string>DropCall</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[09:34:04.851] </string>
+       <string>[11:27:43.337] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=b43d7190-51d3-469b-92a2-2850df61ba75 Type=end_playrecord ResourceType=call event=&lt;xml-fragment type=&quot;end_playrecord&quot; resource_id=&quot;b43d7190-51d3-469b-92a2-2850df61ba75&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;audio_file_size&quot; value=&quot;318764&quot;/&gt;&#13;
-  &lt;event_data name=&quot;duration&quot; value=&quot;10020&quot;/&gt;&#13;
-  &lt;event_data name=&quot;id&quot; value=&quot;b43d7190-51d3-469b-92a2-2850df61ba75&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media_id&quot; value=&quot;4297affd-6c8e-4827-a325-e499c9c0c0a0&quot;/&gt;&#13;
-  &lt;event_data name=&quot;reason&quot; value=&quot;max-time&quot;/&gt;&#13;
-  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
-  &lt;event_data name=&quot;transaction_id&quot; value=&quot;4297affd-6c8e-4827-a325-e499c9c0c0a0&quot;/&gt;&#13;
-  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY_RECORD&quot;/&gt;&#13;
-  &lt;event_data name=&quot;video_file_size&quot; value=&quot;0&quot;/&gt;&#13;
-&lt;/xml-fragment&gt;</string>
+       <string>SIP/2.0 200 OK&#13;
+From: &lt;sip:Test@10.20.120.20&gt;;tag=1276f91&#13;
+To: &lt;sip:msml@146.152.64.141&gt;;tag=f0bcf270-8d409892-13c4-50022-16c90-661e607a-16c90&#13;
+Call-ID: bbe739b80e24cf5ad7a03647564cf66d@10.20.120.20&#13;
+CSeq: 3 BYE&#13;
+Via: SIP/2.0/UDP 10.20.120.20:5070;branch=z9hG4bK46a643bdf04e692fa396e864d5d437d9&#13;
+Allow: INVITE,CANCEL,ACK,BYE,OPTIONS,INFO,REFER,NOTIFY,UPDATE&#13;
+Content-Length: 0&#13;
+&#13;
+</string>
       </void>
       <void property="shortDesc">
        <string>Drop call</string>
@@ -160,20 +137,35 @@ Supported: outbound&#13;
        <string>MakeCall</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[09:34:04.861] </string>
+       <string>[11:27:43.453] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=d2395181-e3d8-495e-87c6-4216a45a0abb Type=connected ResourceType=call event=&lt;xml-fragment type=&quot;connected&quot; resource_id=&quot;d2395181-e3d8-495e-87c6-4216a45a0abb&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;call_id&quot; value=&quot;d2395181-e3d8-495e-87c6-4216a45a0abb&quot;/&gt;&#13;
-  &lt;event_data name=&quot;called_uri&quot; value=&quot;&amp;lt;sip:toto@10.20.120.33&gt;;tag=~kRumeD&quot;/&gt;&#13;
-  &lt;event_data name=&quot;caller_uri&quot; value=&quot;&amp;lt;sip:146.152.64.141&gt;;tag=ee9cb6d0-8d409892-13c4-50022-53d2b-5649baf3-53d2b&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media&quot; value=&quot;audio&quot;/&gt;&#13;
-  &lt;event_data name=&quot;reason&quot; value=&quot;unknown&quot;/&gt;&#13;
-  &lt;event_data name=&quot;type&quot; value=&quot;CONNECTED&quot;/&gt;&#13;
-&lt;/xml-fragment&gt;</string>
+       <string>SIP/2.0 200 Ok&#13;
+Via: SIP/2.0/UDP 10.20.120.20:5070;branch=z9hG4bK8156fa31840306c56de03fd9d81cf3b4&#13;
+From: &lt;sip:Test@10.20.120.20&gt;;tag=1276f91&#13;
+To: &lt;sip:toto@10.20.120.20&gt;;tag=p91-R2I&#13;
+Call-ID: e4413cffde1c1b64f669b0939b894d7b@10.20.120.20&#13;
+CSeq: 1 INVITE&#13;
+User-Agent: Linphone/3.8.5 (belle-sip /1.4.1)&#13;
+Supported: outbound&#13;
+Allow: INVITE,ACK,CANCEL,OPTIONS,BYE,REFER,NOTIFY,MESSAGE,SUBSCRIBE,INFO,UPDATE&#13;
+Contact: &lt;sip:toto@10.20.120.20&gt;;+sip.instance=&quot;&lt;urn:uuid:347e82fe-699e-4d16-bca6-d8e2aa4c91aa&gt;&quot;&#13;
+Content-Type: application/sdp&#13;
+Content-Length: 194&#13;
+&#13;
+v=0&#13;
+o=toto 1958 3995 IN IP4 10.20.120.20&#13;
+s=Talk&#13;
+c=IN IP4 10.20.120.20&#13;
+t=0 0&#13;
+m=audio 7078 RTP/AVP 0 101&#13;
+a=rtpmap:101 telephone-event/8000&#13;
+m=video 9078 RTP/AVP 103&#13;
+a=rtpmap:103 VP8/90000&#13;
+</string>
       </void>
       <void property="shortDesc">
        <string>Making call</string>
@@ -186,21 +178,20 @@ Supported: outbound&#13;
        <string>Play</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[09:34:06.023] </string>
+       <string>[11:27:44.719] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=d2395181-e3d8-495e-87c6-4216a45a0abb Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;d2395181-e3d8-495e-87c6-4216a45a0abb&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;duration&quot; value=&quot;9900&quot;/&gt;&#13;
-  &lt;event_data name=&quot;id&quot; value=&quot;d2395181-e3d8-495e-87c6-4216a45a0abb&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media_id&quot; value=&quot;dacdf602-2d03-423a-a0cb-2c9e55c59fd6&quot;/&gt;&#13;
-  &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
-  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
-  &lt;event_data name=&quot;transaction_id&quot; value=&quot;dacdf602-2d03-423a-a0cb-2c9e55c59fd6&quot;/&gt;&#13;
-  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
-&lt;/xml-fragment&gt;</string>
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;msml version=&quot;1.1&quot;&gt;&#13;
+	&lt;event name=&quot;moml.exit&quot;&#13;
+		id=&quot;conn:f0bcfc60-8d409892-13c4-50022-16c9b-64ff1c79-16c9b/dialog:Play&quot;&gt;&#13;
+		&lt;name&gt;play.amt&lt;/name&gt;&lt;value&gt;10020&lt;/value&gt;&#13;
+		&lt;name&gt;play.end&lt;/name&gt;&lt;value&gt;play.complete&lt;/value&gt;&#13;
+&lt;/event&gt;&#13;
+&lt;/msml&gt;</string>
       </void>
       <void property="shortDesc">
        <string>Playing</string>
@@ -213,21 +204,22 @@ Supported: outbound&#13;
        <string>FinalDropCall</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[09:34:16.060] </string>
+       <string>[11:27:55.334] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=d2395181-e3d8-495e-87c6-4216a45a0abb Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;d2395181-e3d8-495e-87c6-4216a45a0abb&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;duration&quot; value=&quot;9900&quot;/&gt;&#13;
-  &lt;event_data name=&quot;id&quot; value=&quot;d2395181-e3d8-495e-87c6-4216a45a0abb&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media_id&quot; value=&quot;dacdf602-2d03-423a-a0cb-2c9e55c59fd6&quot;/&gt;&#13;
-  &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
-  &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
-  &lt;event_data name=&quot;transaction_id&quot; value=&quot;dacdf602-2d03-423a-a0cb-2c9e55c59fd6&quot;/&gt;&#13;
-  &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
-&lt;/xml-fragment&gt;</string>
+       <string>SIP/2.0 200 OK&#13;
+From: &lt;sip:Test@10.20.120.20&gt;;tag=1276f91&#13;
+To: &lt;sip:msml@146.152.64.141&gt;;tag=f0bcfc60-8d409892-13c4-50022-16c9b-64ff1c79-16c9b&#13;
+Call-ID: 5174a81e56a87f55986ccfeaa0fe210b@10.20.120.20&#13;
+CSeq: 3 BYE&#13;
+Via: SIP/2.0/UDP 10.20.120.20:5070;branch=z9hG4bK0a4b09103b3db35de17699869dd90ab3&#13;
+Allow: INVITE,CANCEL,ACK,BYE,OPTIONS,INFO,REFER,NOTIFY,UPDATE&#13;
+Content-Length: 0&#13;
+&#13;
+</string>
       </void>
       <void property="shortDesc">
        <string>Drop call</string>

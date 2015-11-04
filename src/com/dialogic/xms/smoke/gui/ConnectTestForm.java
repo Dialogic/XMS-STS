@@ -39,7 +39,7 @@ import nu.xom.Elements;
  * @author ssatyana
  */
 public class ConnectTestForm extends javax.swing.JFrame {
-    
+
     public static final Logger logger = Logger.getLogger(ConnectTestForm.class.getName());
     public static FileInputStream xmlFile;
     private ConnectTest testobj;
@@ -54,7 +54,7 @@ public class ConnectTestForm extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                    
+
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
@@ -63,8 +63,15 @@ public class ConnectTestForm extends javax.swing.JFrame {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.setResizable(false);
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                testobj.isCancelled();
+            }
+        });
         outboundAddressField.setEnabled(Boolean.FALSE);
         stimComboBox.setEnabled(Boolean.FALSE);
         File f = new File("config/ConnectTestConfig.xml");
@@ -453,7 +460,7 @@ public class ConnectTestForm extends javax.swing.JFrame {
     private void fileTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fileTextFieldActionPerformed
-    
+
     private void fileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileButtonActionPerformed
         try {
             JFileChooser chooser = new JFileChooser("");
@@ -462,7 +469,7 @@ public class ConnectTestForm extends javax.swing.JFrame {
             chooser.setDialogTitle("Open config file");
             chooser.setFileFilter(xmlfilter);
             chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            
+
             int returnVal = chooser.showOpenDialog((java.awt.Component) null);
             File inFile = null;
             if (returnVal == chooser.APPROVE_OPTION) {
@@ -484,7 +491,7 @@ public class ConnectTestForm extends javax.swing.JFrame {
                 BufferedReader in = new BufferedReader(new FileReader(inFile));
                 FileWriter fstream = new FileWriter(fileNameTextField.getText(), true);
                 BufferedWriter out = new BufferedWriter(fstream);
-                
+
                 String line = in.readLine();
                 while (line != null) {
                     out.write(line);
@@ -504,14 +511,14 @@ public class ConnectTestForm extends javax.swing.JFrame {
             logger.log(Level.SEVERE, ex.getMessage(), ex);
         }
     }//GEN-LAST:event_fileButtonActionPerformed
-    
+
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.testobj.isCancelled();
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
-    
+
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
-        
+
         if (xmlFile != null) {
             File f = new File(fileNameTextField.getText());
             if (f.exists()) {
@@ -534,11 +541,11 @@ public class ConnectTestForm extends javax.swing.JFrame {
                             JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                
+
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource source = getXMLSource();
-                
+
                 StreamResult result = new StreamResult(new File(fileNameTextField.getText()));
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes");
                 transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
@@ -558,11 +565,11 @@ public class ConnectTestForm extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_enterButtonActionPerformed
-    
+
     private void stimComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stimComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stimComboBoxActionPerformed
-    
+
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         final JFileChooser SaveAs = new JFileChooser();
         SaveAs.setApproveButtonText("Save");
@@ -575,7 +582,7 @@ public class ConnectTestForm extends javax.swing.JFrame {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = getXMLSource();
-            
+
             StreamResult result = new StreamResult(fileName);
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
@@ -584,13 +591,13 @@ public class ConnectTestForm extends javax.swing.JFrame {
             System.out.println(ex);
         }
     }//GEN-LAST:event_saveButtonActionPerformed
-    
+
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         typeComboBox.setSelectedItem("Type");
         ipAddressTextField.setText("");
         userTextField.setText("");
     }//GEN-LAST:event_clearButtonActionPerformed
-    
+
     private void typeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeComboBoxActionPerformed
         if (typeComboBox.getSelectedItem() == "REST") {
             userTextField.setText("app");
@@ -602,22 +609,26 @@ public class ConnectTestForm extends javax.swing.JFrame {
             portTextField.setEnabled(true);
         }
     }//GEN-LAST:event_typeComboBoxActionPerformed
-    
+
     private void videoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_videoComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_videoComboBoxActionPerformed
-    
+
     private void callTypeComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callTypeComboBoxActionPerformed
         if (callTypeComboBox.getSelectedItem().toString().equalsIgnoreCase("Inbound")) {
             outboundAddressField.setEnabled(Boolean.FALSE);
         } else if (callTypeComboBox.getSelectedItem().toString().equalsIgnoreCase("Outbound")) {
             outboundAddressField.setEnabled(Boolean.TRUE);
             if (typeComboBox.getSelectedItem() == "REST") {
-                outboundAddressField.setText("sip:" + outboundAddressField.getText());
+                if (outboundAddressField.getText().contains("sip")) {
+                    outboundAddressField.setText(outboundAddressField.getText());
+                } else {
+                    outboundAddressField.setText("sip:" + outboundAddressField.getText());
+                }
             }
         }
     }//GEN-LAST:event_callTypeComboBoxActionPerformed
-    
+
     private void readFromXMLFile(FileInputStream file) {
         Document doc;
         try {
@@ -667,66 +678,66 @@ public class ConnectTestForm extends javax.swing.JFrame {
             Logger.getLogger(ConnectTestForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     private DOMSource getXMLSource() {
         DOMSource source = null;
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-            
+
             org.w3c.dom.Document doc = docBuilder.newDocument();
-            
+
             org.w3c.dom.Element rootElement = doc.createElement("xmsconfig");
             doc.appendChild(rootElement);
-            
+
             org.w3c.dom.Element techType = doc.createElement("techtype");
             techType.appendChild(doc.createTextNode(typeComboBox.getSelectedItem().toString()));
             rootElement.appendChild(techType);
-            
+
             org.w3c.dom.Element baseurl = doc.createElement("baseurl");
             baseurl.appendChild(doc.createTextNode(ipAddressTextField.getText()));
             rootElement.appendChild(baseurl);
-            
+
             org.w3c.dom.Element appid = doc.createElement("appid");
             appid.appendChild(doc.createTextNode(userTextField.getText()));
             rootElement.appendChild(appid);
-            
+
             org.w3c.dom.Element port = doc.createElement("port");
             port.appendChild(doc.createTextNode(portTextField.getText()));
             rootElement.appendChild(port);
-            
+
             org.w3c.dom.Element count = doc.createElement("count");
             count.appendChild(doc.createTextNode(countTextField.getText()));
             rootElement.appendChild(count);
-            
+
             org.w3c.dom.Element channels = doc.createElement("channels");
             channels.appendChild(doc.createTextNode(channelTextField.getText()));
             rootElement.appendChild(channels);
-            
+
             org.w3c.dom.Element configFileName = doc.createElement("configFile");
             configFileName.appendChild(doc.createTextNode(fileNameTextField.getText()));
             rootElement.appendChild(configFileName);
-            
+
             org.w3c.dom.Element playFileName = doc.createElement("playFile");
             playFileName.appendChild(doc.createTextNode(playFileNameTextField.getText()));
             rootElement.appendChild(playFileName);
-            
+
             org.w3c.dom.Element isVideo = doc.createElement("video");
             isVideo.appendChild(doc.createTextNode(videoComboBox.getSelectedItem().toString()));
             rootElement.appendChild(isVideo);
-            
+
             org.w3c.dom.Element callType = doc.createElement("callType");
             callType.appendChild(doc.createTextNode(callTypeComboBox.getSelectedItem().toString()));
             rootElement.appendChild(callType);
-            
+
             org.w3c.dom.Element outboundAdress = doc.createElement("outboundAddress");
             outboundAdress.appendChild(doc.createTextNode(outboundAddressField.getText()));
             rootElement.appendChild(outboundAdress);
-            
+
             org.w3c.dom.Element stim = doc.createElement("stim");
             stim.appendChild(doc.createTextNode(stimComboBox.getSelectedItem().toString()));
             rootElement.appendChild(stim);
-            
+
             source = new DOMSource(doc);
         } catch (Exception ex) {
             logger.log(Level.SEVERE, ex.getMessage(), ex);

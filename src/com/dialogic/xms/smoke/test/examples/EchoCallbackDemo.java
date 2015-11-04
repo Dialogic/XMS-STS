@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -50,8 +52,22 @@ public class EchoCallbackDemo extends Observable {
                     XMSConnector myConnector = myFactory.CreateConnector(this.getConfigFileName());
                     XMSCall call = myFactory.CreateCall(myConnector);
 
-                    Checkpoint waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
-                        + Inet4Address.getLocalHost().getHostAddress() + ":" + echoTestAudit.getConfigContents().getPort());
+                    Checkpoint waitCall = null;
+                    if (echoTestAudit.getConfigContents().getType().equalsIgnoreCase("MSML")) {
+                        waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                                + Inet4Address.getLocalHost().getHostAddress() + ":" + echoTestAudit.getConfigContents().getPort());
+                    } else if (echoTestAudit.getConfigContents().getType().equalsIgnoreCase("REST")) {
+                        Pattern pattern = Pattern.compile("\\/\\/(.*?):");
+                        Matcher m = pattern.matcher(echoTestAudit.getConfigContents().getIpAddress());
+                        String event = "";
+                        if (m.find()) {
+                            event = m.group(1);
+                        }
+                        waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist, Call "
+                                + echoTestAudit.getConfigContents().getAppID() + "@" + event);
+                    } else {
+                        waitCall = Utility.getCheckpoint("WaitCall", "Adding to waitCalllist");
+                    }
                     setValue(waitCall.getShortDesc());
                     XMSReturnCode result = call.Waitcall();
                     waitCall = Utility.setResult(echoTestAudit, waitCall, result, call);

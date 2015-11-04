@@ -1,0 +1,12 @@
+<xmsconfig>
+<techtype>MSML</techtype>
+<baseurl>146.152.64.141</baseurl>
+<appid>msml</appid>
+<port>5070</port>
+<count>1</count>
+<channels>1</channels>
+<configFile>EchoCallbackConfig.xml</configFile>
+<recordFile>Test</recordFile>
+<maxTime>10</maxTime>
+<stim>Manual</stim>
+</xmsconfig>

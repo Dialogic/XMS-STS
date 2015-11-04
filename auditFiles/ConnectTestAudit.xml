@@ -48,7 +48,7 @@
    <int>2</int>
   </void>
   <void property="startTime">
-   <string>[15:40:22.824] </string>
+   <string>[10:49:22.826] </string>
   </void>
   <void property="testCheckpoints">
    <object class="java.util.ArrayList">
@@ -58,16 +58,16 @@
        <string>MakeCall</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[15:40:23.433] </string>
+       <string>[10:49:23.450] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=01fc959e-938a-4051-a17a-c1615f54c83a Type=connected ResourceType=call event=&lt;xml-fragment type=&quot;connected&quot; resource_id=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot; resource_type=&quot;call&quot;&gt;&#13;
-  &lt;event_data name=&quot;call_id&quot; value=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot;/&gt;&#13;
-  &lt;event_data name=&quot;called_uri&quot; value=&quot;&amp;lt;sip:toto@10.20.120.20:5060&gt;;tag=oSzooUs&quot;/&gt;&#13;
-  &lt;event_data name=&quot;caller_uri&quot; value=&quot;&amp;lt;sip:146.152.64.141&gt;;tag=f0bcc908-8d409892-13c4-50022-5653-7f9770d7-5653&quot;/&gt;&#13;
+       <string>XMSRestEvt- ID=0befb42d-3cb2-41c2-acd5-c4f0692f6c3b Type=connected ResourceType=call event=&lt;xml-fragment type=&quot;connected&quot; resource_id=&quot;0befb42d-3cb2-41c2-acd5-c4f0692f6c3b&quot; resource_type=&quot;call&quot;&gt;&#13;
+  &lt;event_data name=&quot;call_id&quot; value=&quot;0befb42d-3cb2-41c2-acd5-c4f0692f6c3b&quot;/&gt;&#13;
+  &lt;event_data name=&quot;called_uri&quot; value=&quot;&amp;lt;sip:toto@10.20.120.20:5060&gt;;tag=Xia4S92&quot;/&gt;&#13;
+  &lt;event_data name=&quot;caller_uri&quot; value=&quot;&amp;lt;sip:146.152.64.141&gt;;tag=f0bce880-8d409892-13c4-50022-1639f-5af7ca0a-1639f&quot;/&gt;&#13;
   &lt;event_data name=&quot;media&quot; value=&quot;audio&quot;/&gt;&#13;
   &lt;event_data name=&quot;reason&quot; value=&quot;unknown&quot;/&gt;&#13;
   &lt;event_data name=&quot;type&quot; value=&quot;CONNECTED&quot;/&gt;&#13;
@@ -84,19 +84,19 @@
        <string>Play</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[15:40:24.530] </string>
+       <string>[10:49:24.445] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=01fc959e-938a-4051-a17a-c1615f54c83a Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot; resource_type=&quot;call&quot;&gt;&#13;
+       <string>XMSRestEvt- ID=0befb42d-3cb2-41c2-acd5-c4f0692f6c3b Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;0befb42d-3cb2-41c2-acd5-c4f0692f6c3b&quot; resource_type=&quot;call&quot;&gt;&#13;
   &lt;event_data name=&quot;duration&quot; value=&quot;4470&quot;/&gt;&#13;
-  &lt;event_data name=&quot;id&quot; value=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;0befb42d-3cb2-41c2-acd5-c4f0692f6c3b&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;a7974944-1781-4839-aa92-e92131a7df08&quot;/&gt;&#13;
   &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
   &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
-  &lt;event_data name=&quot;transaction_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;a7974944-1781-4839-aa92-e92131a7df08&quot;/&gt;&#13;
   &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
 &lt;/xml-fragment&gt;</string>
       </void>
@@ -111,19 +111,19 @@
        <string>DropCall</string>
       </void>
       <void property="checkpointStartTime">
-       <string>[15:40:39.219] </string>
+       <string>[10:49:39.137] </string>
       </void>
       <void property="checkpointStatus">
        <string>SUCCESS</string>
       </void>
       <void property="longDesc">
-       <string>XMSRestEvt- ID=01fc959e-938a-4051-a17a-c1615f54c83a Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot; resource_type=&quot;call&quot;&gt;&#13;
+       <string>XMSRestEvt- ID=0befb42d-3cb2-41c2-acd5-c4f0692f6c3b Type=end_play ResourceType=call event=&lt;xml-fragment type=&quot;end_play&quot; resource_id=&quot;0befb42d-3cb2-41c2-acd5-c4f0692f6c3b&quot; resource_type=&quot;call&quot;&gt;&#13;
   &lt;event_data name=&quot;duration&quot; value=&quot;4470&quot;/&gt;&#13;
-  &lt;event_data name=&quot;id&quot; value=&quot;01fc959e-938a-4051-a17a-c1615f54c83a&quot;/&gt;&#13;
-  &lt;event_data name=&quot;media_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;id&quot; value=&quot;0befb42d-3cb2-41c2-acd5-c4f0692f6c3b&quot;/&gt;&#13;
+  &lt;event_data name=&quot;media_id&quot; value=&quot;a7974944-1781-4839-aa92-e92131a7df08&quot;/&gt;&#13;
   &lt;event_data name=&quot;reason&quot; value=&quot;end&quot;/&gt;&#13;
   &lt;event_data name=&quot;status&quot; value=&quot;0 No Error&quot;/&gt;&#13;
-  &lt;event_data name=&quot;transaction_id&quot; value=&quot;1a46c450-3df3-4399-90cd-11a1d7e4e439&quot;/&gt;&#13;
+  &lt;event_data name=&quot;transaction_id&quot; value=&quot;a7974944-1781-4839-aa92-e92131a7df08&quot;/&gt;&#13;
   &lt;event_data name=&quot;type&quot; value=&quot;END_PLAY&quot;/&gt;&#13;
 &lt;/xml-fragment&gt;</string>
       </void>

@@ -100,7 +100,9 @@ public class ConnectTest extends Observable {
                     setValue(playStat.getShortDesc());
                     XMSReturnCode playResult = myCall.Play(inboundPlayAudit.getConfigContents().getPlayFileName());
                     playStat = Utility.setResult(inboundPlayAudit, playStat, playResult, myCall);
-                    setValue(myCall.getLastEvent().getReason());
+                    if (myCall.getLastEvent().getReason() != null) {
+                        setValue(myCall.getLastEvent().getReason());
+                    }
                     this.checkpoints.add(playStat);
                 }
                 Utility.Sleep(10000);
@@ -161,10 +163,12 @@ public class ConnectTest extends Observable {
                 setValue(playStat.getShortDesc());
                 XMSReturnCode playResult = myCall.Play(outboundPlayAudit.getConfigContents().getPlayFileName());
                 playStat = Utility.setResult(outboundPlayAudit, playStat, playResult, myCall);
-                setValue(myCall.getLastEvent().getReason());
+                if (myCall.getLastEvent().getReason() != null) {
+                    setValue(myCall.getLastEvent().getReason());
+                }
                 this.checkpoints.add(playStat);
             }
-            Utility.Sleep(10000);
+            Utility.Sleep(5000);
             //Hangup the call
             Checkpoint dropStat = Utility.getCheckpoint("DropCall", "Drop call");
             setValue(dropStat.getShortDesc());

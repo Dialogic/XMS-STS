@@ -79,7 +79,7 @@ public class TestManager implements Runnable {
 
     private void writeToFile(Audit audit, String fileName) {
         try {
-            XMLEncoder objectOutputStream = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("auditFiles/"+fileName)));
+            XMLEncoder objectOutputStream = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("auditFiles/" + fileName)));
             objectOutputStream.writeObject(audit);
             objectOutputStream.flush();
             objectOutputStream.close();

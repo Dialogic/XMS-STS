@@ -1,0 +1,10 @@
+<xmsconfig>
+<techtype>REST</techtype>
+<baseurl>http://146.152.64.141:81/default/</baseurl>
+<appid>app</appid>
+<port>5070</port>
+<count>1</count>
+<channels>1</channels>
+<configFile>config/LoadTestConfig.xml</configFile>
+<stim>Manual</stim>
+</xmsconfig>

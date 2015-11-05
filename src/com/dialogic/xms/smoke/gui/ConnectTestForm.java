@@ -603,10 +603,22 @@ public class ConnectTestForm extends javax.swing.JFrame {
             userTextField.setText("app");
             ipAddressTextField.setText("http://enter_ip_adr:81/default/");
             portTextField.setEnabled(false);
+            if (callTypeComboBox.getSelectedItem().toString().equalsIgnoreCase("Outbound")) {
+                if (!outboundAddressField.getText().contains("sip")) {
+                    outboundAddressField.setText("sip:" + outboundAddressField.getText());
+                }
+            }
         } else if (typeComboBox.getSelectedItem() == "MSML") {
             userTextField.setText("msml");
             ipAddressTextField.setText("");
             portTextField.setEnabled(true);
+            if (callTypeComboBox.getSelectedItem().toString().equalsIgnoreCase("Outbound")) {
+                if (outboundAddressField.getText().contains("sip")) {
+                    String str = "sip:";
+                    String adr = outboundAddressField.getText().replaceAll(str, "");
+                    outboundAddressField.setText(adr);
+                }
+            }
         }
     }//GEN-LAST:event_typeComboBoxActionPerformed
 
@@ -624,6 +636,12 @@ public class ConnectTestForm extends javax.swing.JFrame {
                     outboundAddressField.setText(outboundAddressField.getText());
                 } else {
                     outboundAddressField.setText("sip:" + outboundAddressField.getText());
+                }
+            } else if (typeComboBox.getSelectedItem() == "MSML") {
+                if (outboundAddressField.getText().contains("sip")) {
+                    String str = "sip:";
+                    String adr = outboundAddressField.getText().replaceAll(str, "");
+                    outboundAddressField.setText(adr);
                 }
             }
         }

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_40" class="java.beans.XMLDecoder">
+ <object class="com.dialogic.xms.smoke.test.Audit">
+  <void property="auditTestName">
+   <string>InboundPlayTest</string>
+  </void>
+  <void property="checkpointCount">
+   <int>3</int>
+  </void>
+  <void property="configContents">
+   <object class="com.dialogic.xms.smoke.test.Config">
+    <void property="appID">
+     <string>msml</string>
+    </void>
+    <void property="callType">
+     <string>Inbound</string>
+    </void>
+    <void property="channels">
+     <int>1</int>
+    </void>
+    <void property="count">
+     <int>1</int>
+    </void>
+    <void property="ipAddress">
+     <string>146.152.64.40</string>
+    </void>
+    <void property="outboundAddress">
+     <string>sip:toto@10.20.120.20:5060</string>
+    </void>
+    <void property="playFileName">
+     <string>smoketest/success</string>
+    </void>
+    <void property="port">
+     <int>5070</int>
+    </void>
+    <void property="stim">
+     <string>Manual</string>
+    </void>
+    <void property="type">
+     <string>MSML</string>
+    </void>
+   </object>
+  </void>
+  <void property="configFileName">
+   <string>config/ConnectTestConfig.xml</string>
+  </void>
+  <void property="numFail">
+   <int>1</int>
+  </void>
+  <void property="numPass">
+   <int>2</int>
+  </void>
+  <void property="startTime">
+   <string>[10:06:52.738] </string>
+  </void>
+  <void property="testCheckpoints">
+   <object class="java.util.ArrayList">
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>WaitCall</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[10:06:53.210] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>ACK sip:test@10.20.105.59:5070 SIP/2.0&#13;
+Via: SIP/2.0/UDP 10.20.105.63:5060;rport=5060;received=10.20.105.63;branch=z9hG4bK.jCu0BPAC0&#13;
+From: &quot;Arnab&quot; &lt;sip:toto@10.0.0.67&gt;;tag=3WZuDe6In&#13;
+To: &lt;sip:test@10.20.105.59&gt;;tag=a345d505&#13;
+CSeq: 20 ACK&#13;
+Call-ID: GuQFEHPld8&#13;
+Max-Forwards: 70&#13;
+Content-Length: 0&#13;
+&#13;
+</string>
+      </void>
+      <void property="shortDesc">
+       <string>Adding to waitCalllist, Call 10.20.105.59:5070</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>Play</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[10:09:25.479] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>FAILURE</string>
+      </void>
+      <void property="longDesc">
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;msml version=&quot;1.1&quot;&gt;&#13;
+	&lt;event name=&quot;msml.dialog.exit&quot;&#13;
+		id=&quot;conn:f016a6c8-28409892-13c4-50022-13f51-477348f8-13f51/dialog:Play&quot;&gt;&#13;
+		&lt;name&gt;dialog.exit.status&lt;/name&gt; &lt;value&gt;410&lt;/value&gt;&#13;
+		&lt;name&gt;dialog.exit.description&lt;/name&gt; &lt;value&gt;[play]: 3 No file found for audio uri: error&lt;/value&gt;&#13;
+	&lt;/event&gt;&#13;
+&lt;/msml&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Playing</string>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="com.dialogic.xms.smoke.test.Checkpoint">
+      <void property="checkpointName">
+       <string>DropCall</string>
+      </void>
+      <void property="checkpointStartTime">
+       <string>[10:09:37.659] </string>
+      </void>
+      <void property="checkpointStatus">
+       <string>SUCCESS</string>
+      </void>
+      <void property="longDesc">
+       <string>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#13;
+&lt;msml version=&quot;1.1&quot;&gt;&#13;
+	&lt;event name=&quot;msml.dialog.exit&quot;&#13;
+		id=&quot;conn:f016a6c8-28409892-13c4-50022-13f51-477348f8-13f51/dialog:Play&quot;&gt;&#13;
+		&lt;name&gt;dialog.exit.status&lt;/name&gt; &lt;value&gt;410&lt;/value&gt;&#13;
+		&lt;name&gt;dialog.exit.description&lt;/name&gt; &lt;value&gt;[play]: 3 No file found for audio uri: error&lt;/value&gt;&#13;
+	&lt;/event&gt;&#13;
+&lt;/msml&gt;</string>
+      </void>
+      <void property="shortDesc">
+       <string>Drop call</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void property="testStatus">
+   <string>FAILURE</string>
+  </void>
+ </object>
+</java>

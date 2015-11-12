@@ -23,7 +23,9 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author dwolansk
+ * @author ssatyana
+ *
+ * Tests simple inbound/outbound calls.
  */
 public class ConnectTest extends Observable {
 

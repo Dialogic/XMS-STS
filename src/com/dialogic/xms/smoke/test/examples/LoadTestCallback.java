@@ -15,6 +15,8 @@ import java.util.Observable;
 /**
  *
  * @author ssatyana
+ *
+ * Callback functionality to handle load test events.
  */
 public class LoadTestCallback extends Observable implements XMSEventCallback {
 

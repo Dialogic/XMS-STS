@@ -27,6 +27,8 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ssatyana
+ *
+ * Digit detect test.
  */
 public class SimpleIVRTest extends Observable {
 

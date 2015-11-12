@@ -27,6 +27,8 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ssatyana
+ *
+ * A simple record play test with callback.
  */
 public class EchoCallbackDemo extends Observable {
 

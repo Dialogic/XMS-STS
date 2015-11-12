@@ -21,6 +21,8 @@ import nu.xom.Elements;
 /**
  *
  * @author ssatyana
+ *
+ * Utility function used to set audit details.
  */
 public class Utility {
 

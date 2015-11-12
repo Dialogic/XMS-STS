@@ -30,6 +30,8 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ssatyana
+ *
+ * Three party Conference demo.
  */
 public class SimpleConferenceTest extends Observable {
 

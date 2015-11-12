@@ -29,6 +29,8 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ssatyana
+ *
+ * Load test with 10 calls.
  */
 public class LoadTest extends Observable implements Observer {
 

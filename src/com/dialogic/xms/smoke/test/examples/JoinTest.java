@@ -28,6 +28,8 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ssatyana
+ *
+ * A two-party join demo.
  */
 public class JoinTest extends Observable {
 

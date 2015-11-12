@@ -27,6 +27,8 @@ import java.util.regex.Pattern;
 /**
  *
  * @author ssatyana
+ *
+ * A Simple record play demo.
  */
 public class PlayRecordTest extends Observable {
 

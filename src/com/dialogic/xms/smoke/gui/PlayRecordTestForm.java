@@ -205,7 +205,7 @@ public class PlayRecordTestForm extends javax.swing.JFrame {
         appIdLabel4.setText("Stim Option");
 
         recordFileNameTextField.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        recordFileNameTextField.setText("Test");
+        recordFileNameTextField.setText("Test.wav");
 
         appIdLabel5.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         appIdLabel5.setForeground(new java.awt.Color(0, 0, 204));
@@ -504,6 +504,7 @@ public class PlayRecordTestForm extends javax.swing.JFrame {
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes");
                 transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
                 transformer.transform(source, result);
+                //this.testobj.setRecordFileName(recordFileNameTextField.getText());
                 this.testobj.setConfigFileName(fileNameTextField.getText());
                 if (Integer.parseInt(countTextField.getText()) > 1) {
                     this.testobj.setCount(countTextField.getText());

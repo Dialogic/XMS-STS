@@ -207,7 +207,7 @@ public class EchoCallbackDemoForm extends javax.swing.JFrame {
         appIdLabel4.setText("Stim Option");
 
         recordFileNameTextField.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        recordFileNameTextField.setText("Test");
+        recordFileNameTextField.setText("Test.wav");
 
         appIdLabel5.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         appIdLabel5.setForeground(new java.awt.Color(0, 0, 204));
@@ -501,7 +501,7 @@ public class EchoCallbackDemoForm extends javax.swing.JFrame {
             try {
                 if (typeComboBox.getSelectedItem() == "Type"
                         || ipAddressTextField.getText().isEmpty() || userTextField.getText().isEmpty()
-                        || ipAddressTextField.getText().equalsIgnoreCase("http://enter_ip_adr:81/default/")
+//                        || ipAddressTextField.getText().equalsIgnoreCase("http://enter_ip_adr:81/default/")
                         || ipAddressTextField.getText().contains("enter_ip_adr")) {
                     JOptionPane.showMessageDialog(new JFrame(), "Please Choose a config file or enter data in the fields", "Dialog",
                             JOptionPane.ERROR_MESSAGE);
@@ -516,7 +516,7 @@ public class EchoCallbackDemoForm extends javax.swing.JFrame {
                 transformer.setOutputProperty(OutputKeys.INDENT, "yes");
                 transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
                 transformer.transform(source, result);
-                //this.testobj.setRecordFileName(recordFileNameTextField.getText());
+//                this.testobj.setRecordFileName(recordFileNameTextField.getText());
                 this.testobj.setConfigFileName(fileNameTextField.getText());
                 //this.testobj.setMaxTime(Integer.parseInt(maxTimeTextField.getText()));
                 if (Integer.parseInt(countTextField.getText()) > 1) {

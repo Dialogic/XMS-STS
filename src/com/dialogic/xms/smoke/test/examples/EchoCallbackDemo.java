@@ -5,6 +5,9 @@
  */
 package com.dialogic.xms.smoke.test.examples;
 
+import com.dialogic.XMSClientLibrary.XMSAudioCodecOption;
+import com.dialogic.XMSClientLibrary.XMSAudioRateOption;
+import com.dialogic.XMSClientLibrary.XMSAudioTypeOption;
 import com.dialogic.xms.smoke.test.stim.EchoCallbackDemoStim;
 import com.dialogic.XMSClientLibrary.XMSCall;
 import com.dialogic.XMSClientLibrary.XMSConnector;
@@ -80,6 +83,9 @@ public class EchoCallbackDemo extends Observable {
 
                     call.RecordOptions.SetMaxTime(echoTestAudit.getConfigContents().getMaxTime());
                     call.RecordOptions.SetTerminateDigits("#");
+                    call.RecordOptions.setAudioMimeCodec(XMSAudioCodecOption.L_16);
+                    call.RecordOptions.setAudioMimeRate(XMSAudioRateOption.X_8000);
+                    call.RecordOptions.setAudioTypeOption(XMSAudioTypeOption.AUDIO_X_WAV);
                     setValue("Call Connected");
 
                     Checkpoint recordStat = Utility.getCheckpoint("Record", "Start Recording");

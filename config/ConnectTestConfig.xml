@@ -1,6 +1,6 @@
 <xmsconfig>
 <techtype>REST</techtype>
-<baseurl>http://146.152.64.141:81/default/</baseurl>
+<baseurl>http://146.152.64.217:81/default/</baseurl>
 <appid>app</appid>
 <port>5070</port>
 <count>1</count>
@@ -8,7 +8,7 @@
 <configFile>config/ConnectTestConfig.xml</configFile>
 <playFile>smoketest/success</playFile>
 <video>False</video>
-<callType>Outbound</callType>
-<outboundAddress>sip:toto@10.20.120.20:5060</outboundAddress>
+<callType>Inbound</callType>
+<outboundAddress>toto@10.20.120.33:5060</outboundAddress>
 <stim>Manual</stim>
 </xmsconfig>

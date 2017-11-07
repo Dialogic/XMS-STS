@@ -5,6 +5,9 @@
  */
 package com.dialogic.xms.smoke.test.examples;
 
+import com.dialogic.XMSClientLibrary.XMSAudioCodecOption;
+import com.dialogic.XMSClientLibrary.XMSAudioRateOption;
+import com.dialogic.XMSClientLibrary.XMSAudioTypeOption;
 import com.dialogic.xms.smoke.test.stim.PlayRecordTestStim;
 import com.dialogic.XMSClientLibrary.XMSCall;
 import com.dialogic.XMSClientLibrary.XMSConnector;
@@ -77,6 +80,9 @@ public class PlayRecordTest extends Observable {
 
                     call.RecordOptions.SetMaxTime(playRecordAudit.getConfigContents().getMaxTime());
                     call.RecordOptions.SetTerminateDigits("#");
+                    call.RecordOptions.setAudioMimeCodec(XMSAudioCodecOption.L_16);
+                    call.RecordOptions.setAudioMimeRate(XMSAudioRateOption.X_8000);
+                    call.RecordOptions.setAudioTypeOption(XMSAudioTypeOption.AUDIO_X_WAV);
                     setValue("Call Connected");
 
                     Checkpoint recordStat = Utility.getCheckpoint("Record", "Start Recording");
